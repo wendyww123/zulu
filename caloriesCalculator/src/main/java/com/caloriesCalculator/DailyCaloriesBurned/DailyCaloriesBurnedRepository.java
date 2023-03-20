@@ -1,5 +1,6 @@
 package com.caloriesCalculator.DailyCaloriesBurned;
 
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.Optional;
@@ -12,5 +13,8 @@ public interface DailyCaloriesBurnedRepository extends MongoRepository<DailyCalo
     }
 
     // [R] -> read/find calories burned by the userId and date from the database
-    Optional<DailyCaloriesBurned> findDailyCaloriesBurnedByUserIdAndDate(int userId, String date);
+    DailyCaloriesBurned findDailyCaloriesBurnedByUserIdAndDate(int userId, String date);
+
+    // [U] -> update daily calories burned by userId and date
+    int findAndModifyByUserIdAndDate(int userId, String date, Update update);
 }

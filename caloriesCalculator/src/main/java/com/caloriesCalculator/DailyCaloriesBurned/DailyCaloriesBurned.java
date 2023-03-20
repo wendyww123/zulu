@@ -9,8 +9,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @Document
 public class DailyCaloriesBurned {
-    @Id
-    private String id;
     private int userId;
     private int caloriesBurned;
     private String date;

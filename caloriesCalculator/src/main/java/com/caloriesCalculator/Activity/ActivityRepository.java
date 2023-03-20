@@ -6,11 +6,14 @@ import java.util.List;
 
 public interface ActivityRepository extends MongoRepository<Activity, String> {
 
-    // [C] - create activity
-    default void createActivity(Activity activity){
-        save(activity);
+    // [C] - create a new activity
+    default Activity createActivity(Activity activity){
+        return save(activity);
     };
 
-    // [R] - find all activities with same date
-    List<Activity> findActivitiesByDate(String date);
+    // [R] - find all activities by userId and date
+    List<Activity> findActivitiesByUserIdAndDate(int userId, String date);
+
+    // [D] - delete by object id
+
 }
